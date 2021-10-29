@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: courses-view
+  data:
+    mongodb:
+      host: mongodb
+      database: coursesdb
+server:
+  port: 3000
