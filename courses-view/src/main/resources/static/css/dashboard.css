@@ -1,0 +1,130 @@
+body {
+    background: rgb(255,255,255);
+background: linear-gradient(113deg, rgba(255,255,255,1) 0%, rgba(230,230,230,1) 100%);
+height: 100%;
+margin: 0;
+background-repeat: no-repeat;
+background-attachment: fixed;
+  }
+
+.section {
+    background-color: #E9E9E9;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px #dadada;
+    padding: 15px;
+    height: 500px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    overflow-y: scroautoll;
+}
+
+.section h2 {
+    color: rgb(185, 185, 185);
+    font-size: 24px;
+    display: inline-block;
+}
+
+.activities .item {
+    background-color: white;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-webkit-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+}
+
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+  }
+
+
+.events .item{
+    background-color: white;
+    margin: 4px;
+    padding: 4px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-webkit-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+}
+
+.events .event-date {
+    color: rgb(163, 163, 163);
+    font-size: 20px;
+    padding-right: 4px;
+}
+.events .event-name {
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+    font-size: 20px;
+}
+
+.meetings .numberCircle {
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    padding: 8px;
+    color: #FFF;
+    text-align: center;
+    display: inline-block;
+    font: 12px Arial, sans-serif;
+    margin-top: 10px;
+}
+
+.meetings .item {
+    background-color: white;
+    margin: 4px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-webkit-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+}
+
+.meetings .meet-name {
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+    font-size: 20px;
+    
+}
+
+
+.files .item {
+    font-size: 12px;
+    text-align: center;
+}
+
+.agenda .item {
+    background-color: white;
+    margin: 4px;
+    padding: 15px;
+    border-radius: 10px;
+} 
+
+.button-top {
+    float: right;
+}
+
+.coffee .item {
+    background-color: white;
+    margin: 4px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-webkit-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+-moz-box-shadow: 1px 3px 21px -4px rgba(0,0,0,0.5);
+}
+
+.coffee .meet-name {
+    font-weight: bold;
+    color: rgb(94, 94, 94);
+    font-size: 20px;
+    
+}

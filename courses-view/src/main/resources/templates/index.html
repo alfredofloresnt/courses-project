@@ -1,34 +1,358 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-    <meta charset="UTF-8">
-    <title>Courses</title>
-    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
-    <link th:href="@{/css/fa.min.css}" rel="stylesheet">
-    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link th:href="@{/css/dashboard.css}" rel="stylesheet">
+    </link>
+
+    <title>Page Title</title>
 </head>
+
 <body>
-<h1>Courses List</h1>
-<br/>
-<a href="/register">Click here to register a new Course</a>
-<br/>
-<table class="table">
-    <tr>
-        <th>Id</th>
-        <th>Name</th>
-        <th>Details</th>
-        <th>Duration(hrs)</th>
-    </tr>
+    <div class="bg-image"></div>
+    <div class="container">
+        <!-- Content here -->
+        <div class="row">
+            <div class="col-sm-4 activities">
+                <div class="section">
+                    <h2>Mis actividades</h2>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#activitiesModal">Agregar actividad</button>
+                    </div>
+                    <div id="activities-list">
 
-    <tr th:each="c:${courses}">
-        <td th:text="${c.id}"></td>
-        <td th:text="${c.name}"></td>
-        <td th:text="${c.details}"></td>
-        <td th:text="${c.duration}"></td>
-    </tr>
+                    </div>
+                </div>
 
-</table>
+            </div>
+            <div class="col-sm-4">
+                <div class="section">
+                    <row>
+                        <div class="calendar">
+                            <h2>Calendario</h2>
+                            <div id="includedContent"></div>
+                        </div>
+                    </row>
+                    <row>
+                        <div class="events">
+                            <h2>Proximos eventos</h2>
+                            <div class="row item">
+                                <div class="col-sm-4">
+                                    <img src="img/calendar.png" width="100%" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <span class="event-name">Evento 1</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="event-date">01/dic/2021</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row item">
+                                <div class="col-sm-4">
+                                    <img src="img/calendar.png" width="100%" />
+                                </div>
+                                <div class="col-sm-6">
+                                    <div class="row">
+                                        <span class="event-name">Evento 1</span>
+                                    </div>
+                                    <div class="row">
+                                        <span class="event-date">01/dic/2021</span>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </row>
+                </div>
+
+            </div>
+            <div class="col-sm-4 meetings">
+                <div class="section">
+                    <h2>Sala de juntas</h2>
+                    <div class="item">
+                        <div style="display: flex; align-items: center;">
+
+                            <span class="meet-name">Sala 1</span>
+                        </div>
+                        <div>
+                            <div class="numberCircle" style="background-color: rgb(157, 88, 235);">AF</div>
+                            <div class="numberCircle" style="background-color: rgb(88, 122, 235);">MR</div>
+                            <div class="numberCircle" style="background-color: rgb(88, 204, 146);">RL</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div style="display: flex; align-items: center;">
+
+                            <span class="meet-name">Sala 2</span>
+                        </div>
+                        <div>
+                            <div class="numberCircle" style="background-color: rgb(157, 88, 235);">FN</div>
+                            <div class="numberCircle" style="background-color: rgb(88, 122, 235);">CF</div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div style="display: flex; align-items: center;">
+
+                            <span class="meet-name">Sala 3</span>
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row" style="padding-top: 30px;">
+            <div class="col-sm-4 files">
+                <div class="section">
+                    <h2>Archivos</h2>
+                    <div>
+                        <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#activitiesModal">Agregar archivo</button>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 item">
+                            <img src="./img/file.png" width="100%" alt="">
+                            <span>archivo1.png</span>
+                        </div>
+                        <div class="col-sm-3 item">
+                            <img src="./img/file.png" width="100%" alt="">
+                            <span>archivo1.png</span>
+                        </div>
+                        <div class="col-sm-3 item">
+                            <img src="./img/file.png" width="100%" alt="">
+                            <span>archivo1.png</span>
+                        </div>
+                        <div class="col-sm-3 item">
+                            <img src="./img/file.png" width="100%" alt="">
+                            <span>archivo1.png</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4 agenda">
+                <div class="section">
+
+                    <div>
+                        <h2>Agenda personal</h2>
+                        <div>
+                            <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#notesModal">Agregar nota</button>
+                        </div>
+
+                    </div>
+                    <div id="notes-list">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="col-sm-4 coffee">
+                <div class="section">
+                    <h2>Coffee break</h2>
+                    <div>
+                        <div class="item">
+                            <div style="display: flex; align-items: center;">
+    
+                                <span class="meet-name">Sala 1</span>
+                            </div>
+                            <div>
+                                <div class="numberCircle" style="background-color: rgb(157, 88, 235);">AF</div>
+                                <div class="numberCircle" style="background-color: rgb(88, 122, 235);">MR</div>
+                                <div class="numberCircle" style="background-color: rgb(88, 204, 146);">RL</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="activitiesModal" tabindex="-1" role="dialog" aria-labelledby="activitiesModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="activitiesModal">Agregar actividad</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Actividad" aria-label="Actividad">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveActivity">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModal"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="notesModal">Agregar nota</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" placeholder="Titulo de la nota" aria-label="Actividad">
+                    <textarea class="form-control" placeholder="Escribe tu nota" id="exampleFormControlTextarea1" rows="3"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 </body>
+<script>
+    
+    let activities = [
+        {
+            title: "Test 123",
+            status: 0
+        },
+        {
+            title: "Test 456",
+            status: 0
+        },
+    ]
+    
+
+    let notes = [
+        {
+            title: "Nota 1",
+            description: "lorem impsum"
+        }
+    ]
+
+
+/*
+    $(document).ready(function () {
+            console.log("AAA")
+            $.get(
+                "h/activities/",
+                function (data) {
+                    alert('page content: ' + data);
+
+                })
+        })
+        */
+
+
+
+    $(function () {
+        $("#includedContent").load("calendar.html");
+    });
+
+    /*
+
+    $(window).on('load', function () {             
+            var activities= '${activities}';
+            alert(activities);
+    })
+    */
+
+
+
+
+    console.log(activities)
+
+    // Load activities //
+    for (let i = 0; i < activities.length; i++){
+        let status = 0;
+        if (activities[i].status == 0) {
+            status = {text: "Por hacer", class:"badge-secondary"}
+        } else if (activities[i].status == 1) {
+            status = {text: "En progreso", class:"badge-warning"}
+        } else if (activities[i].status == 2) {
+            status = {text: "Terminado", class:"badge-success"}
+        }
+        let item = `<div class="row item">
+                            <div><span class="badge `+ status.class + `" style="margin-right: 4px;"> ` + status.text + `</span></div>
+                            <span> ` + activities[i].title + `</span><br>
+                            <div style="margin-left: auto; margin-right: 0;">
+                                <button type="button" class="btn btn-default btn-circle" style="border-color: #ffc107;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#ffc107"
+                                        class="bi bi-hourglass-top" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2 14.5a.5.5 0 0 0 .5.5h11a.5.5 0 1 0 0-1h-1v-1a4.5 4.5 0 0 0-2.557-4.06c-.29-.139-.443-.377-.443-.59v-.7c0-.213.154-.451.443-.59A4.5 4.5 0 0 0 12.5 3V2h1a.5.5 0 0 0 0-1h-11a.5.5 0 0 0 0 1h1v1a4.5 4.5 0 0 0 2.557 4.06c.29.139.443.377.443.59v.7c0 .213-.154.451-.443.59A4.5 4.5 0 0 0 3.5 13v1h-1a.5.5 0 0 0-.5.5zm2.5-.5v-1a3.5 3.5 0 0 1 1.989-3.158c.533-.256 1.011-.79 1.011-1.491v-.702s.18.101.5.101.5-.1.5-.1v.7c0 .701.478 1.236 1.011 1.492A3.5 3.5 0 0 1 11.5 13v1h-7z" />
+                                    </svg>
+                                </button>
+                                <button type="button" class="btn btn-default btn-circle" style="border-color: green;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="green"
+                                        class="bi bi-check" viewBox="0 0 16 16">
+                                        <path
+                                            d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                        </div>`
+        $('#activities-list').append(item)
+    }
+
+    // Notas //
+    for (let i = 0; i < notes.length; i++){
+        let item = `<div class="row">
+                            <div class="item">
+                                <div>
+                                    <span>` + notes[i].title + `</span>
+                                </div>
+                                <div>
+                                    <span>` + notes[i].description + `</span>
+                                </div>
+                            </div>
+                        </div>`
+        $('#notes-list').append(item)
+    }
+
+    $(document).ready(function(){
+          $("#saveActivity").click(function(){
+           $.ajax({
+            type: 'GET',
+            url:"http://", 
+            data: {key: '##################',
+                OperatorRef:'MTA%20NYCT',
+                LineRef:'B54',
+                VehicleRef:'9531'   },
+            dataType: 'jsonp',
+            async: false,
+            success: function(result){
+            console.log(result.Siri)
+            $("#div1").html(result);
+            $("#div1").html(result.Siri.ServiceDelivery.ResponseTimestamp)
+        }});
+    });
+});
+
+</script>
+
 </html>

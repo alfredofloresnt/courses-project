@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log in</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lato&family=Lora&display=swap');
+
+        :root {
+            --blue: 210, 86%, 31%;
+            --white-blue: 210, 8%, 75%;
+        }
+
+        html, body {
+            height: 100%;
+            box-sizing: border-box;
+            position: relative;
+            font-family: 'Lato', sans-serif;
+        }
+
+        *, *:before, *:after {
+            box-sizing: inherit;
+            margin: 0;
+            padding: 0;
+        }
+
+        .main {
+            background: linear-gradient(
+                    hsl(var(--blue), 0.5),
+                    hsl(var(--blue), 0.5)
+                ), url("https://t3.ftcdn.net/jpg/03/57/02/98/360_F_357029835_KQGVJ8vg6wOCFzfTXooTRFRckwOrwHW6.jpg");
+            background-repeat: no-repeat;
+                background-size: cover;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login {
+            margin-left: 1em;
+            margin-right: 1em;
+            background-color: white;
+            border-radius: 5px;
+            padding: 50px 75px;
+            width: 50%;
+            max-width: 500px;
+            min-width: 300px;
+        }
+
+        .input-group {
+            position: relative;
+            width: 100%;
+            min-width: 200px;
+            margin: auto;
+            margin-block: 2rem;
+        }
+
+        .form-input {
+            border: none;
+            border-bottom: 1px solid black;
+            width: 100%;
+            height: 28px;
+            padding: 2px;
+        }
+
+        label {
+            position: absolute;
+            font-size: 1rem;
+            top: 2px;
+            color: gray;
+            -webkit-transition: top .2s ease-in-out,  font-size .2s ease-in-out;
+            transition: top .2s ease-in-out,  font-size .2s ease-in-out;
+        }
+
+        label.active {
+            font-size: 0.75rem;
+            top: -1rem;
+        }
+
+        #submit {
+            border: none;
+            border-radius: 3px;
+            background-color:seagreen;
+            padding: 0.5em 1em;
+            float: right;
+        }
+
+        #submit a {
+            font-size: 1rem;
+            text-decoration: none;
+            font-family: 'Lato', sans-serif;
+            font-weight: bold;
+            letter-spacing:1px;
+            color: whitesmoke;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        input:focus-within {
+            border-bottom: 1px solid yellowgreen;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="login">
+            <div class="input-group">
+                <label for="user">Usuario:</label>
+                <input id="user" class="form-input" type="text">
+            </div>
+            <div class="input-group">
+                <label for="pass">Contraseña:</label>
+                <input id="pass" class="form-input" type="password">
+            </div>
+            <div style="margin-top: 50px;">
+                <a href="#" style="color:dodgerblue">Crear cuenta</a>
+                <button alt="Submit" id="submit"><a href="/dashboard.html">Ingresar</a></button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var input = document.getElementsByTagName("input");
+
+        input = Array.prototype.slice.call(input)
+        input.forEach((el) => {
+            el.addEventListener("focusin", () => {
+                el.parentNode.querySelector("label").classList.add("active");
+            })
+
+            el.addEventListener("focusout", () => {
+                if (!el.value) {
+                    el.parentNode.querySelector("label").classList.remove("active");
+                }
+            })
+        });
+    </script>
+</body>
+</html>
